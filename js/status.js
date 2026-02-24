@@ -20,21 +20,67 @@
         ReleaseEvent: 'RELEASE',
         IssueCommentEvent: 'COMMENT',
         PullRequestReviewEvent: 'REVIEW',
+        PublicEvent: 'PUBLIC',
     };
 
-    function timeAgo(dateStr) {
+    function formatDate(dateStr) {
         const date = new Date(dateStr);
-        const diff = Date.now() - date.getTime();
+        const now = new Date();
+        const diff = now.getTime() - date.getTime();
         const mins = Math.floor(diff / 60000);
+
         if (mins < 1) return 'just now';
         if (mins < 60) return `${mins}m ago`;
+
         const hrs = Math.floor(mins / 60);
         if (hrs < 24) return `${hrs}h ago`;
+
         const days = Math.floor(hrs / 24);
         if (days < 7) return `${days}d ago`;
+
         // Show actual date for older events
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        return `${months[date.getMonth()]} ${date.getDate()}`;
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        const currentYear = now.getFullYear();
+
+        return year === currentYear ? `${month} ${day}` : `${month} ${day}, ${year}`;
+    }
+
+    function getEventDetail(event) {
+        const type = event.type;
+        const payload = event.payload || {};
+
+        switch (type) {
+            case 'PushEvent': {
+                // payload.commits may or may not exist in the API response
+                const commits = payload.commits;
+                if (commits && commits.length > 0) {
+                    const count = payload.size || commits.length;
+                    return ` — ${count} commit${count !== 1 ? 's' : ''}`;
+                }
+                // If no commits array, show branch
+                const branch = (payload.ref || '').replace('refs/heads/', '');
+                return branch ? ` → ${branch}` : '';
+            }
+            case 'CreateEvent':
+                return payload.ref
+                    ? ` — ${payload.ref_type || 'ref'}: ${payload.ref}`
+                    : ` — ${payload.ref_type || 'repository'}`;
+            case 'DeleteEvent':
+                return payload.ref ? ` — ${payload.ref_type}: ${payload.ref}` : '';
+            case 'PullRequestEvent':
+                return payload.action ? ` — ${payload.action}` : '';
+            case 'IssuesEvent':
+                return payload.action ? ` — ${payload.action}` : '';
+            case 'ForkEvent':
+                return payload.forkee ? ` → ${payload.forkee.full_name}` : '';
+            case 'PublicEvent':
+                return ' — repo made public';
+            default:
+                return '';
+        }
     }
 
     async function fetchGitHubActivity() {
@@ -47,21 +93,15 @@
             const events = await res.json();
 
             if (!events.length) {
-                feedEl.innerHTML = '<div class="gh-event"><span class="gh-event__type">NO DATA</span> No recent activity detected.</div>';
+                feedEl.innerHTML = '<div class="gh-event"><span class="gh-event__type">[IDLE]</span> No recent activity.</div>';
                 return;
             }
 
             feedEl.innerHTML = events.slice(0, 8).map(event => {
                 const type = EVENT_LABELS[event.type] || event.type.replace('Event', '').toUpperCase();
                 const repo = event.repo?.name?.split('/')[1] || event.repo?.name || 'unknown';
-                const time = timeAgo(event.created_at);
-
-                let detail = '';
-                if (event.type === 'PushEvent') {
-                    // payload.size is the real count; payload.commits array is capped at 20
-                    const commits = event.payload?.size || event.payload?.commits?.length || 0;
-                    detail = ` — ${commits} commit${commits !== 1 ? 's' : ''}`;
-                }
+                const time = formatDate(event.created_at);
+                const detail = getEventDetail(event);
 
                 return `<div class="gh-event">
           <span class="gh-event__type">[${type}]</span>
