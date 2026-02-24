@@ -1,0 +1,89 @@
+/* ============================================================
+   ADAPTIVE THREAT ENVIRONMENT — Adaptive Layer Styles
+   Controlled by data-profile attribute on <body>
+   ============================================================ */
+
+/* --- Skimmer Mode: Compress narratives, emphasize metrics --- */
+body[data-profile="skimmer"] .hero__desc {
+    max-height: 2.8em;
+    overflow: hidden;
+    position: relative;
+}
+
+body[data-profile="skimmer"] .hero__desc::after {
+    content: '...';
+    color: var(--fg-muted);
+}
+
+body[data-profile="skimmer"] .project__desc {
+    max-height: 3.3em;
+    overflow: hidden;
+}
+
+body[data-profile="skimmer"] .timeline__points {
+    max-height: 3em;
+    overflow: hidden;
+}
+
+body[data-profile="skimmer"] .sec-explain {
+    display: none;
+}
+
+/* Metrics get emphasized */
+body[data-profile="skimmer"] .project__metrics .metric__value {
+    font-size: var(--step-2);
+}
+
+/* --- Reader Mode: Expand depth sections --- */
+body[data-profile="reader"] .project__depth {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: var(--space-xl);
+}
+
+body[data-profile="reader"] .btn-internals {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    border-style: solid;
+}
+
+/* --- Explorer Mode: Expand depth for heavy interactors --- */
+body[data-profile="explorer"] .project__depth {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: var(--space-xl);
+}
+
+/* --- Adaptive Status Indicator (shown in HUD) --- */
+.adaptive-indicator {
+    font-family: var(--font-system);
+    font-size: var(--step--2);
+    color: var(--fg-ghost);
+    opacity: 0;
+    transition: opacity 0.8s var(--ease-smooth);
+    letter-spacing: 0.06em;
+}
+
+.adaptive-indicator.active {
+    opacity: 1;
+}
+
+body[data-profile="skimmer"] .adaptive-indicator {
+    color: var(--accent-amber);
+}
+
+body[data-profile="reader"] .adaptive-indicator {
+    color: var(--accent-blue);
+}
+
+body[data-profile="explorer"] .adaptive-indicator {
+    color: var(--accent-green);
+}
+
+/* --- Transition between modes --- */
+body[data-profile] .project__desc,
+body[data-profile] .hero__desc,
+body[data-profile] .timeline__points,
+body[data-profile] .sec-explain {
+    transition: max-height 0.5s var(--ease-smooth), opacity 0.3s;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Signal lost. Target not found.">
+    <title>404 — Signal Lost</title>
+    <link rel="stylesheet" href="css/design.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            background: var(--bg-void);
+        }
+
+        .lost {
+            max-width: 480px;
+            padding: var(--space-2xl);
+        }
+
+        .lost__code {
+            font-family: var(--font-system);
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 700;
+            color: var(--accent-red);
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            text-shadow: 0 0 40px var(--accent-red-glow);
+        }
+
+        .lost__label {
+            font-family: var(--font-system);
+            font-size: var(--step-0);
+            color: var(--fg-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-xl);
+        }
+
+        .lost__msg {
+            color: var(--fg-muted);
+            font-size: var(--step--1);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+        }
+
+        .lost__terminal {
+            font-family: var(--font-system);
+            font-size: var(--step--2);
+            color: var(--fg-ghost);
+            text-align: left;
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            margin-bottom: var(--space-xl);
+            line-height: 2;
+        }
+
+        .lost__terminal .accent {
+            color: var(--accent-blue);
+        }
+
+        .lost__terminal .threat {
+            color: var(--accent-red);
+        }
+
+        .lost__back {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-xl);
+            font-family: var(--font-system);
+            font-size: var(--step--2);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            background: var(--accent-blue-dim);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .lost__back:hover {
+            background: var(--accent-blue);
+            color: var(--bg-void);
+            box-shadow: 0 0 20px var(--accent-blue-glow);
+        }
+
+        /* Glitch effect on the 404 */
+        .lost__code {
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+
+            0%,
+            93%,
+            100% {
+                text-shadow: 0 0 40px var(--accent-red-glow);
+            }
+
+            94% {
+                text-shadow: -3px 0 var(--accent-blue), 3px 0 var(--accent-red);
+            }
+
+            95% {
+                text-shadow: 3px 0 var(--accent-blue), -3px 0 var(--accent-red);
+            }
+
+            96% {
+                text-shadow: 0 0 40px var(--accent-red-glow);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lost">
+        <div class="lost__code">404</div>
+        <p class="lost__label">Signal Lost</p>
+        <div class="lost__terminal">
+            > Target acquisition failed.<br>
+            > Route: <span class="threat">NOT_FOUND</span><br>
+            > Status: <span class="accent">Redirecting to base...</span>
+        </div>
+        <a class="lost__back" href="/">← Return to Base</a>
+    </div>
+</body>
+
+</html>

@@ -1,40 +1,61 @@
-# SYSTEM.OBSERVER
+# Adaptive Threat Environment
 
-**Hrisheekesh PV** — Security Engineer Portfolio
+A behavioral portfolio system that profiles visitor interaction patterns and adapts the interface in real-time.
 
-A terminal-inspired portfolio showcasing security research, forensic tooling, and adversarial deception work.
+**Not a portfolio. A system.**
 
-## ✨ Design
+## What This Is
 
-- **Terminal HUD** — Window chrome with title bar, navigation dock, and command bar
-- **CRT Aesthetics** — Scanlines, vignette, phosphor glow, chromatic aberration
-- **Command Navigation** — Type `cd /work` or press `1-5` to navigate
-- **Boot Sequences** — Each page loads with system initialization effect
+When someone enters, the site runs a lightweight client-side behavioral model. It classifies visitors based on scroll velocity, click patterns, hover durations, and section dwell time — then adapts the UI accordingly:
 
-## 📁 Structure
+- **Skimmers** get compressed summaries and emphasized metrics
+- **Readers** get expanded architecture diagrams and design trade-offs
+- **Explorers** who interact with internal elements get full depth revealed
+
+No cookies. No analytics. No data leaves the browser. The profiler exists only in runtime memory.
+
+## Architecture
 
 ```
-├── index.html          # Home / Identity
-├── work.html           # Projects & Hackathons
-├── experience.html     # Timeline & Skills
-├── blog.html           # Certifications & Achievements
-├── contact.html        # Contact Info
-├── css/
-│   ├── base.css        # Variables, reset
-│   ├── chrome.css      # Window UI, navigation
-│   ├── theme.css       # Page layouts
-│   └── effects.css     # CRT effects
-└── js/
-    ├── state.js        # Mode management
-    ├── nav.js          # Command bar
-    ├── observer.js     # Scroll animations
-    └── canvas-bg.js    # Particle network
+index.html              // Single-page app
+css/
+  design.css            // Design tokens, palette, typography
+  main.css              // Layout, components, responsive
+  adaptive.css          // Behavioral layer switching
+js/
+  profiler.js           // Interaction profiling engine
+  boot.js               // Terminal boot sequence
+  adaptive-ui.js        // UI layer controller
+  graph.js              // SVG architecture renderer
+  status.js             // GitHub API live feed
+  console-msg.js        // DevTools Easter eggs
+  keyboard.js           // Command palette & shortcuts
 ```
 
-## 🚀 Local Development
+## Stack
 
-Open `index.html` in a browser — no build tools required.
+- **Zero frameworks.** Vanilla HTML, CSS, JavaScript.
+- **Zero build tools.** No webpack, no bundler, no transpiler.
+- **Zero tracking.** No cookies, no analytics, no data collection.
+- **External requests:** Google Fonts (typography) + GitHub API (activity feed). Both optional — site degrades gracefully without them.
 
-## 📄 License
+## Features
 
-GPL-3.0
+- **Behavioral Profiling Engine** — classifies visitors and adapts UI
+- **Interactive Architecture Maps** — pure SVG node-graphs with hover/click interaction
+- **Multi-Layer Project Cards** — surface metrics → analytical diagrams → design trade-offs
+- **Live GitHub Feed** — real activity data, auto-refreshing
+- **Security Transparency** — "Inspect the Perimeter" section documenting the site's own security posture
+- **Keyboard Navigation** — press `?` for command palette, `1-6` for section jumps
+- **DevTools Easter Eggs** — open console and see
+
+## Run Locally
+
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+# → http://localhost:8000
+```
+
+## License
+
+See [LICENSE](LICENSE) for details.

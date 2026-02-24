@@ -1,0 +1,249 @@
+/* ============================================================
+   MICRO-ANIMATIONS
+   Staggered reveals, counter animations, subtle motion
+   ============================================================ */
+
+/* --- Staggered tag fade-in --- */
+.hero__tags .tag,
+.project__stack .tag,
+.radar-category__items .tag {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: tagFadeIn 0.4s var(--ease-out) forwards;
+}
+
+/* Stagger each tag */
+.hero__tags .tag:nth-child(1),
+.project__stack .tag:nth-child(1),
+.radar-category__items .tag:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero__tags .tag:nth-child(2),
+.project__stack .tag:nth-child(2),
+.radar-category__items .tag:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.hero__tags .tag:nth-child(3),
+.project__stack .tag:nth-child(3),
+.radar-category__items .tag:nth-child(3) {
+    animation-delay: 0.26s;
+}
+
+.hero__tags .tag:nth-child(4),
+.project__stack .tag:nth-child(4),
+.radar-category__items .tag:nth-child(4) {
+    animation-delay: 0.34s;
+}
+
+.hero__tags .tag:nth-child(5),
+.project__stack .tag:nth-child(5),
+.radar-category__items .tag:nth-child(5) {
+    animation-delay: 0.42s;
+}
+
+.hero__tags .tag:nth-child(6),
+.project__stack .tag:nth-child(6),
+.radar-category__items .tag:nth-child(6) {
+    animation-delay: 0.50s;
+}
+
+@keyframes tagFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Metric value pulse on hover --- */
+.metric {
+    transition: all var(--dur-fast) var(--ease-out);
+}
+
+.metric:hover {
+    border-color: var(--accent-blue);
+    background: rgba(59, 130, 246, 0.06);
+    transform: translateY(-2px);
+}
+
+.metric:hover .metric__value {
+    text-shadow: 0 0 12px var(--accent-blue-glow);
+}
+
+/* --- Project card subtle border glow (animated) --- */
+.project {
+    background-image: linear-gradient(var(--bg-surface), var(--bg-surface)),
+        linear-gradient(135deg, transparent, var(--accent-blue-dim), transparent);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* --- Timeline node pulse --- */
+.timeline__item::before {
+    animation: nodePulse 3s ease infinite;
+}
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px var(--accent-blue-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 16px var(--accent-blue-glow), 0 0 4px var(--accent-blue);
+    }
+}
+
+/* --- Status row hover --- */
+.status-row {
+    transition: background var(--dur-fast);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+    border-radius: var(--radius-sm);
+}
+
+.status-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Security card icon spin on hover --- */
+.sec-card__title::before {
+    display: inline-block;
+    transition: transform 0.4s var(--ease-spring);
+}
+
+.sec-card:hover .sec-card__title::before {
+    transform: rotate(60deg);
+}
+
+/* --- Contact link arrow --- */
+.contact-link::after {
+    content: '→';
+    margin-left: auto;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all var(--dur-fast) var(--ease-out);
+    font-family: var(--font-system);
+    font-size: var(--step--1);
+}
+
+.contact-link:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Reveal stagger for grids --- */
+.project-grid>.reveal:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.project-grid>.reveal:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.project-grid>.reveal:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.status-grid>.reveal:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.status-grid>.reveal:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.status-grid>.reveal:nth-child(3) {
+    transition-delay: 0.19s;
+}
+
+.status-grid>.reveal:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.security-grid>.reveal:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.security-grid>.reveal:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.security-grid>.reveal:nth-child(3) {
+    transition-delay: 0.19s;
+}
+
+/* --- Project status badge pulse --- */
+.project__status {
+    animation: statusBlink 4s ease infinite;
+}
+
+@keyframes statusBlink {
+
+    0%,
+    80%,
+    100% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+}
+
+/* --- HUD brand subtle glow --- */
+.hud__brand {
+    transition: text-shadow var(--dur-normal);
+}
+
+.hud__brand:hover {
+    text-shadow: 0 0 12px var(--accent-blue-glow);
+}
+
+/* --- Smooth section label slide-in --- */
+.section__label {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.5s var(--ease-out);
+}
+
+.visible .section__label,
+.reveal.visible .section__label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Depth section expand animation --- */
+.depth-section {
+    animation: depthFadeIn 0.4s var(--ease-out);
+}
+
+@keyframes depthFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Reduced motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scan-line {
+        display: none;
+    }
+}

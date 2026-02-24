@@ -1,0 +1,238 @@
+/* ============================================================
+   ADAPTIVE THREAT ENVIRONMENT — Design System
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    /* --- Palette --- */
+    --bg-void: #050810;
+    --bg-deep: #0a0e17;
+    --bg-surface: #0f1420;
+    --bg-panel: #141a28;
+    --bg-elevated: #1a2236;
+
+    --fg: #e2e8f0;
+    --fg-bright: #f1f5f9;
+    --fg-dim: #64748b;
+    --fg-muted: #475569;
+    --fg-ghost: #334155;
+
+    --accent-blue: #3b82f6;
+    --accent-blue-dim: rgba(59, 130, 246, 0.15);
+    --accent-blue-glow: rgba(59, 130, 246, 0.25);
+
+    --accent-red: #ef4444;
+    --accent-red-dim: rgba(239, 68, 68, 0.12);
+    --accent-red-glow: rgba(239, 68, 68, 0.2);
+
+    --accent-green: #22c55e;
+    --accent-green-dim: rgba(34, 197, 94, 0.12);
+
+    --accent-amber: #f59e0b;
+    --accent-amber-dim: rgba(245, 158, 11, 0.12);
+
+    --border: rgba(255, 255, 255, 0.06);
+    --border-active: rgba(59, 130, 246, 0.3);
+
+    /* --- Typography --- */
+    --font-system: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+
+    /* Fluid type scale (clamp-based) */
+    --step--2: clamp(0.69rem, 0.63rem + 0.3vw, 0.8rem);
+    --step--1: clamp(0.8rem, 0.74rem + 0.35vw, 0.95rem);
+    --step-0: clamp(0.94rem, 0.86rem + 0.4vw, 1.1rem);
+    --step-1: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+    --step-2: clamp(1.3rem, 1.15rem + 0.7vw, 1.6rem);
+    --step-3: clamp(1.55rem, 1.35rem + 1vw, 2rem);
+    --step-4: clamp(1.85rem, 1.55rem + 1.5vw, 2.6rem);
+    --step-5: clamp(2.2rem, 1.8rem + 2vw, 3.3rem);
+
+    /* --- Spacing --- */
+    --space-3xs: 0.25rem;
+    --space-2xs: 0.375rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+
+    /* --- Motion --- */
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-instant: 100ms;
+    --dur-fast: 200ms;
+    --dur-normal: 350ms;
+    --dur-slow: 500ms;
+    --dur-boot: 2500ms;
+
+    /* --- Radius --- */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* --- Shadows --- */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --shadow-glow-blue: 0 0 20px var(--accent-blue-glow), 0 0 60px rgba(59, 130, 246, 0.08);
+    --shadow-glow-red: 0 0 20px var(--accent-red-glow);
+
+    /* --- Layout --- */
+    --content-max: 1100px;
+    --hud-height: 56px;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    line-height: 1.65;
+    color: var(--fg);
+    background: var(--bg-void);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--fg-bright);
+}
+
+h1 {
+    font-size: var(--step-5);
+}
+
+h2 {
+    font-size: var(--step-4);
+}
+
+h3 {
+    font-size: var(--step-2);
+}
+
+h4 {
+    font-size: var(--step-1);
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+a:hover {
+    color: var(--fg-bright);
+}
+
+code,
+.mono {
+    font-family: var(--font-system);
+}
+
+button {
+    font-family: var(--font-system);
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+::selection {
+    background: var(--accent-blue);
+    color: var(--bg-void);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--fg-ghost);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-muted);
+}
+
+/* --- Utility Classes --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-mono {
+    font-family: var(--font-system);
+}
+
+.text-dim {
+    color: var(--fg-dim);
+}
+
+.text-muted {
+    color: var(--fg-muted);
+}
+
+.text-accent {
+    color: var(--accent-blue);
+}
+
+.text-threat {
+    color: var(--accent-red);
+}
+
+.text-safe {
+    color: var(--accent-green);
+}

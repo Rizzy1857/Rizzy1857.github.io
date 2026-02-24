@@ -1,0 +1,164 @@
+/* ============================================================
+   PRINT STYLESHEET
+   Clean, professional output for printing
+   ============================================================ */
+
+@media print {
+
+    /* Hide non-essential elements */
+    .env-bg,
+    .scan-line,
+    .boot-screen,
+    .hud,
+    .env-footer,
+    .btn-internals,
+    .project__actions .btn,
+    .adaptive-indicator,
+    #cmd-palette,
+    .arch-graph,
+    .node-detail {
+        display: none !important;
+    }
+
+    /* Reset colors */
+    body {
+        background: white !important;
+        color: #1a1a1a !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+    }
+
+    * {
+        color: #1a1a1a !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        border-color: #ddd !important;
+    }
+
+    /* Layout */
+    .content {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .section {
+        margin-bottom: 24pt !important;
+        page-break-inside: avoid;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 22pt !important;
+        -webkit-text-fill-color: #1a1a1a !important;
+        background: none !important;
+    }
+
+    h2 {
+        font-size: 16pt !important;
+    }
+
+    h3 {
+        font-size: 13pt !important;
+    }
+
+    h4 {
+        font-size: 11pt !important;
+    }
+
+    .hero__kicker,
+    .section__label {
+        font-size: 9pt !important;
+        color: #666 !important;
+    }
+
+    .hero__role::before {
+        content: '' !important;
+    }
+
+    /* Tags */
+    .tag {
+        border: 1px solid #ccc !important;
+        font-size: 8pt !important;
+        padding: 1pt 6pt !important;
+    }
+
+    /* Projects */
+    .project {
+        border: 1px solid #ddd !important;
+        padding: 12pt !important;
+        margin-bottom: 12pt !important;
+        page-break-inside: avoid;
+    }
+
+    .project__depth {
+        max-height: none !important;
+        opacity: 1 !important;
+        margin-top: 12pt !important;
+    }
+
+    .project__status {
+        border: 1px solid #999 !important;
+    }
+
+    .metric {
+        border: 1px solid #ddd !important;
+        padding: 6pt !important;
+    }
+
+    .metric__value {
+        color: #1a1a1a !important;
+    }
+
+    /* Timeline */
+    .timeline::before {
+        background: #ccc !important;
+    }
+
+    .timeline__item::before {
+        background: #666 !important;
+        border-color: white !important;
+        box-shadow: none !important;
+    }
+
+    .timeline__item {
+        page-break-inside: avoid;
+    }
+
+    /* Status panels */
+    .status-panel {
+        border: 1px solid #ddd !important;
+        padding: 10pt !important;
+        page-break-inside: avoid;
+    }
+
+    .status-row__value--live::before {
+        content: '' !important;
+    }
+
+    /* Security */
+    .sec-card {
+        border: 1px solid #ddd !important;
+        padding: 10pt !important;
+        page-break-inside: avoid;
+    }
+
+    /* Contact */
+    .contact-link {
+        border: 1px solid #ddd !important;
+    }
+
+    /* Show URLs for links */
+    a[href^="http"]:not(.btn)::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #999 !important;
+    }
+
+    /* Hide reveal animations */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

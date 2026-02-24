@@ -1,158 +1,662 @@
 <!DOCTYPE html>
-<html lang="en" data-mode="idle">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Hrisheekesh PV — Security Engineer specializing in Network Forensics and Adversarial Deception. Building adaptive honeypot frameworks and custom traffic analysis engines.">
-  <meta name="author" content="Hrisheekesh PV">
-  <meta property="og:title" content="Hrisheekesh PV — Security Engineer">
-  <meta property="og:description"
-    content="Security Tool Developer specializing in Network Forensics and Adversarial Deception.">
-  <meta property="og:type" content="website">
-  <title>SYSTEM.OBSERVER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hrisheekesh PV — Security Engineer. Adaptive Threat Environment: a behavioral portfolio that thinks in systems.">
+    <meta name="author" content="Hrisheekesh PV">
+    <meta property="og:title" content="Hrisheekesh PV — Adaptive Threat Environment">
+    <meta property="og:description"
+        content="Security engineer portfolio with behavioral profiling, interactive architecture maps, and systems-level thinking.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hrisheekesh PV — Adaptive Threat Environment">
+    <meta name="twitter:image" content="og-preview.png">
+    <title>Hrisheekesh PV — Adaptive Threat Environment</title>
 
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◉</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/chrome.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/design.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
 </head>
 
-<body>
-  <!-- Boot Sequence -->
-  <div class="boot-sequence" aria-hidden="true">
-    <div class="boot-sequence__text">INITIALIZING SYSTEM...</div>
-  </div>
+<body data-profile="neutral">
 
-  <div class="window">
-    <!-- Title Bar -->
-    <header class="titlebar">
-      <div class="titlebar__controls">
-        <span class="titlebar__btn titlebar__btn--close"></span>
-        <span class="titlebar__btn titlebar__btn--minimize"></span>
-        <span class="titlebar__btn titlebar__btn--maximize"></span>
-      </div>
-      <div class="titlebar__title">SYSTEM.OBSERVER</div>
-      <div class="titlebar__status">CONNECTED</div>
-    </header>
+    <!-- Background -->
+    <div class="env-bg" aria-hidden="true"></div>
+    <div class="scan-line" aria-hidden="true"></div>
 
-    <!-- Main Viewport -->
-    <main class="viewport">
-      <div class="page">
-        <header class="page__header">
-          <div class="page__title">
-            <h2>HOME</h2>
-          </div>
-          <p class="page__subtitle">// system identity</p>
-        </header>
-
-        <!-- Identity Section -->
-        <section class="section">
-          <h3 class="section__title">IDENTITY</h3>
-          <div style="max-width: 650px;">
-            <h1 style="margin-bottom: var(--space-md);">
-              <span class="accent">HRISHEEKESH PV</span>
-            </h1>
-            <p style="margin-bottom: var(--space-sm); color: var(--dim);">
-              Security Engineer • Kerala, India
-            </p>
-            <p style="margin-bottom: var(--space-lg);">
-              Security Tool Developer specializing in <span class="accent">Network Forensics</span> and <span
-                class="accent">Adversarial Deception</span>.
-              Creating adaptive honeypot frameworks and custom traffic analysis engines designed to expose adversarial
-              TTPs.
-              Bridges the gap between low-level systems programming (Rust/C++) and security operations to build
-              resilient defense architectures.
-            </p>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Rust</span>
-              <span class="skill-tag">C/C++</span>
-              <span class="skill-tag">Network Forensics</span>
-              <span class="skill-tag">Threat Intelligence</span>
-              <span class="skill-tag">Detection Engineering</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Featured Project -->
-        <section class="section">
-          <h3 class="section__title">FEATURED</h3>
-          <div class="card" style="max-width: 550px;">
-            <div class="card__header">
-              <h4 class="card__title">
-                <a href="https://github.com/Rizzy1857/Apate" target="_blank" rel="noopener noreferrer">Mirage /
-                  Apate</a>
-              </h4>
-              <span class="card__tag">DECEPTION</span>
-            </div>
-            <p class="card__desc">
-              AI-driven cognitive deception framework generating adaptive honeypots for threat intelligence.
-              Engineered to mislead attackers and analyze behavior patterns in real-time.
-            </p>
-            <div class="card__meta">
-              <span>Rust</span>
-              <span>Python</span>
-              <span>ML</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Status -->
-        <section class="section">
-          <h3 class="section__title">STATUS</h3>
-          <p style="font-size: var(--step--1);">
-            <span class="accent">●</span> B.Tech Cybersecurity @ Jyothi Engineering College (2023–2027)
-          </p>
-          <p class="dim" style="font-size: var(--step--1); margin-top: var(--space-xs);">
-            Targeting internship roles to deploy detection engineering capabilities.
-          </p>
-        </section>
-      </div>
-    </main>
-
-    <!-- Navigation Dock -->
-    <nav class="dock">
-      <div class="dock__nav">
-        <a href="index.html" class="dock__link dock__link--active">HOME</a>
-        <a href="work.html" class="dock__link">WORK</a>
-        <a href="experience.html" class="dock__link">EXP</a>
-        <a href="blog.html" class="dock__link">LOG</a>
-        <a href="contact.html" class="dock__link">LINK</a>
-      </div>
-      <span class="dock__divider"></span>
-    </nav>
-
-    <!-- Status Bar -->
-    <div class="statusbar">
-      <span class="statusbar__item">LOC: KERALA, IN</span>
-      <span class="statusbar__item">© 2026</span>
-      <a href="mailto:Hrisheekeshpv@gmail.com?subject=CV%20Request&body=Hi%20Hrisheekesh%2C%0A%0AI%27d%20like%20to%20request%20your%20CV.%0A%0AThanks!"
-        style="color: var(--accent);">Request CV</a>
-      <a href="mailto:Hrisheekeshpv@gmail.com" class="statusbar__contact">✉ Contact Me</a>
+    <!-- Boot Sequence -->
+    <div class="boot-screen" id="boot-screen" aria-live="polite">
+        <div class="boot__terminal"></div>
     </div>
 
-    <!-- Command Bar -->
-    <form class="cmdbar">
-      <span class="cmdbar__prompt">></span>
-      <input type="text" class="cmdbar__input" placeholder="type command or page name..." autocomplete="off"
-        spellcheck="false">
-      <span class="cmdbar__hint">
-        Press <span class="cmdbar__key">1</span>-<span class="cmdbar__key">5</span> to navigate
-      </span>
-    </form>
-  </div>
+    <!-- HUD Navigation -->
+    <header class="hud">
+        <div class="hud__brand">ATE://Hrisheekesh</div>
+        <nav class="hud__nav" aria-label="Main navigation">
+            <a class="hud__link" href="#hero">Home</a>
+            <a class="hud__link" href="#projects">Projects</a>
+            <a class="hud__link" href="#experience">Experience</a>
+            <a class="hud__link" href="#status">Status</a>
+            <a class="hud__link" href="#security">Security</a>
+            <a class="hud__link" href="#contact">Contact</a>
+        </nav>
+        <div class="hud__status">
+            <span class="adaptive-indicator" aria-live="polite"></span>
+            <span class="hud__uptime">uptime: <span id="uptime">00:00</span></span>
+        </div>
+        <button class="hud__toggle" type="button" aria-label="Toggle navigation">[ Menu ]</button>
+    </header>
 
-  <canvas id="bg"></canvas>
+    <!-- Main Content -->
+    <main class="content">
 
-  <script src="js/state.js" defer></script>
-  <script src="js/nav.js" defer></script>
-  <script src="js/observer.js" defer></script>
-  <script src="js/canvas-bg.js" defer></script>
+        <!-- ====== HERO ====== -->
+        <section class="section hero reveal" id="hero">
+            <p class="hero__kicker">> Security Engineer / Tool Developer</p>
+            <h1 class="hero__name">Hrisheekesh PV</h1>
+            <p class="hero__role">class: Security_Engineer | loc: Kerala, India</p>
+            <p class="hero__desc">
+                Security tool developer specializing in network forensics and adversarial deception.
+                Building adaptive honeypot frameworks and custom traffic analysis engines designed to expose
+                adversary TTPs. Bridging low-level systems programming (Rust/C++) with security operations
+                to architect resilient defense systems.
+            </p>
+            <div class="hero__actions">
+                <a class="btn" href="#projects">View Projects</a>
+                <a class="btn btn--ghost" href="Hrisheekesh_CV.pdf" download>Download CV</a>
+                <a class="btn btn--ghost" href="https://github.com/Rizzy1857" target="_blank" rel="noopener">GitHub
+                    ↗</a>
+            </div>
+            <div class="hero__tags">
+                <span class="tag">Defense Engineering</span>
+                <span class="tag">Adversarial Deception</span>
+                <span class="tag">Network Forensics</span>
+                <span class="tag">Threat Intelligence</span>
+            </div>
+        </section>
+
+        <!-- ====== PROJECTS ====== -->
+        <section class="section reveal" id="projects">
+            <div class="section__header">
+                <p class="section__label">Projects</p>
+                <h2 class="section__title">Active Operations</h2>
+                <p class="section__subtitle">Surface-level summaries. Engage deeper to reveal architecture and
+                    trade-offs.</p>
+            </div>
+
+            <div class="project-grid">
+
+                <!-- Project: Mirage / Apate -->
+                <article class="project reveal">
+                    <div class="project__header">
+                        <div>
+                            <h3>Mirage / Apate</h3>
+                            <p style="color:var(--fg-dim); font-size:var(--step--1); margin-top:var(--space-3xs);">
+                                Cognitive Deception Framework</p>
+                        </div>
+                        <span class="project__status">Active</span>
+                    </div>
+                    <p class="project__desc">
+                        AI-driven framework generating adaptive honeypots for threat intelligence collection.
+                        Engineered to mislead attackers and analyze behavioral patterns in real-time using ML
+                        classifiers and dynamic persona shaping.
+                    </p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <div class="metric__value">Rust + Python</div>
+                            <div class="metric__label">Core Stack</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Real-time</div>
+                            <div class="metric__label">TTP Analysis</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Adaptive</div>
+                            <div class="metric__label">Persona Engine</div>
+                        </div>
+                    </div>
+                    <div class="project__stack">
+                        <span class="tag">Rust</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">ML/Clustering</span>
+                        <span class="tag">SSH/HTTP Emulation</span>
+                    </div>
+                    <div class="project__actions">
+                        <a class="btn" href="https://github.com/Rizzy1857/Apate" target="_blank" rel="noopener">GitHub
+                            ↗</a>
+                        <button class="btn-internals" type="button" data-interactive>[ View Internals ]</button>
+                    </div>
+
+                    <!-- Analytical Layer -->
+                    <div class="project__depth">
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Architecture Map</h4>
+                            <div class="arch-graph" data-project="mirage" role="img"
+                                aria-label="Mirage architecture diagram"></div>
+                            <p class="node-detail text-dim text-mono"
+                                style="margin-top:var(--space-sm); font-size:var(--step--2); min-height:2em; transition: opacity 0.3s;">
+                            </p>
+                        </div>
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Design Trade-offs</h4>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Rust for core orchestrator</div>
+                                <div class="tradeoff__rejected">✗ Rejected: Pure Python implementation</div>
+                                <p class="tradeoff__reason">Rust provides memory safety guarantees critical for a system
+                                    that handles
+                                    adversary input directly. The performance overhead of Python's GIL would bottleneck
+                                    concurrent
+                                    honeypot session management. Rust's ownership model prevents the class of memory
+                                    bugs attackers
+                                    could exploit to escape the honeypot.</p>
+                            </div>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Behavioral clustering over rule-based
+                                    classification</div>
+                                <div class="tradeoff__rejected">✗ Rejected: Static TTP signature matching</div>
+                                <p class="tradeoff__reason">Static rules become stale. Behavioral clustering adapts to
+                                    novel attack
+                                    patterns without manual rule updates. Trade-off: higher initial false positive rate
+                                    during model
+                                    warm-up, but dramatically better coverage against unknown TTPs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project: PacketProbe -->
+                <article class="project reveal">
+                    <div class="project__header">
+                        <div>
+                            <h3>PacketProbe</h3>
+                            <p style="color:var(--fg-dim); font-size:var(--step--1); margin-top:var(--space-3xs);">
+                                Lightweight Network Analyzer</p>
+                        </div>
+                        <span class="project__status">Active</span>
+                    </div>
+                    <p class="project__desc">
+                        Real-time network traffic analyzer that captures, parses, and visualizes packets.
+                        Helps users understand protocol structures and headers through live packet inspection
+                        and flow analysis.
+                    </p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <div class="metric__value">Live</div>
+                            <div class="metric__label">Packet Capture</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Multi-Layer</div>
+                            <div class="metric__label">Protocol Parsing</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Real-time</div>
+                            <div class="metric__label">Visualization</div>
+                        </div>
+                    </div>
+                    <div class="project__stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Raw Sockets</span>
+                        <span class="tag">Protocol Dissection</span>
+                        <span class="tag">PCAP</span>
+                    </div>
+                    <div class="project__actions">
+                        <a class="btn" href="https://github.com/Rizzy1857/PacketProbe" target="_blank"
+                            rel="noopener">GitHub ↗</a>
+                        <button class="btn-internals" type="button" data-interactive>[ View Internals ]</button>
+                    </div>
+
+                    <!-- Analytical Layer -->
+                    <div class="project__depth">
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Architecture Map</h4>
+                            <div class="arch-graph" data-project="packetprobe" role="img"
+                                aria-label="PacketProbe architecture diagram"></div>
+                            <p class="node-detail text-dim text-mono"
+                                style="margin-top:var(--space-sm); font-size:var(--step--2); min-height:2em;"></p>
+                        </div>
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Design Trade-offs</h4>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Raw socket capture over libpcap wrapper</div>
+                                <div class="tradeoff__rejected">✗ Rejected: Scapy dependency</div>
+                                <p class="tradeoff__reason">Raw sockets provide finer control over the capture pipeline
+                                    and eliminate
+                                    the Scapy dependency overhead. For a lightweight tool, the reduced abstraction means
+                                    faster packet
+                                    processing and smaller footprint. Trade-off: more boilerplate for protocol handling,
+                                    but full
+                                    transparency into what's captured.</p>
+                            </div>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Modular protocol parsers</div>
+                                <div class="tradeoff__rejected">✗ Rejected: Monolithic parsing function</div>
+                                <p class="tradeoff__reason">Each protocol layer (Ethernet, IP, TCP, UDP, DNS) gets its
+                                    own parser module.
+                                    This makes adding new protocol support trivial — just plug in a new parser without
+                                    modifying existing
+                                    code. Follows the Open/Closed principle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project: ArteFact -->
+                <article class="project reveal">
+                    <div class="project__header">
+                        <div>
+                            <h3>ArteFact</h3>
+                            <p style="color:var(--fg-dim); font-size:var(--step--1); margin-top:var(--space-3xs);">
+                                Modular Cybersecurity Toolkit</p>
+                        </div>
+                        <span class="project__status">Active</span>
+                    </div>
+                    <p class="project__desc">
+                        Designed for forensic tasks: metadata inspection, packet parsing, and malware trace
+                        analysis. A modular Python toolkit for digital forensics experimentation and
+                        evidence examination.
+                    </p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <div class="metric__value">Modular</div>
+                            <div class="metric__label">Architecture</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Forensic</div>
+                            <div class="metric__label">Focus</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric__value">Python</div>
+                            <div class="metric__label">Core Language</div>
+                        </div>
+                    </div>
+                    <div class="project__stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Metadata Extraction</span>
+                        <span class="tag">Hash Analysis</span>
+                        <span class="tag">IOC Detection</span>
+                        <span class="tag">PCAP Parsing</span>
+                    </div>
+                    <div class="project__actions">
+                        <a class="btn" href="https://github.com/Rizzy1857/Artefact" target="_blank"
+                            rel="noopener">GitHub ↗</a>
+                        <button class="btn-internals" type="button" data-interactive>[ View Internals ]</button>
+                    </div>
+
+                    <!-- Analytical Layer -->
+                    <div class="project__depth">
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Architecture Map</h4>
+                            <div class="arch-graph" data-project="artefact" role="img"
+                                aria-label="ArteFact architecture diagram"></div>
+                            <p class="node-detail text-dim text-mono"
+                                style="margin-top:var(--space-sm); font-size:var(--step--2); min-height:2em;"></p>
+                        </div>
+                        <div class="depth-section">
+                            <h4 class="depth-section__title">Design Trade-offs</h4>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Plugin-based module system</div>
+                                <div class="tradeoff__rejected">✗ Rejected: Single monolithic script</div>
+                                <p class="tradeoff__reason">Each forensic capability (metadata, hashing, packet parsing,
+                                    IOC extraction)
+                                    is a standalone module. This allows selective loading — a responder only needs the
+                                    hash module
+                                    doesn't need to load the full PCAP parser. Reduces attack surface of the tool
+                                    itself.</p>
+                            </div>
+                            <div class="tradeoff">
+                                <div class="tradeoff__chose">✓ Chose: Multi-algorithm hashing (MD5 + SHA-256 + ssdeep)
+                                </div>
+                                <div class="tradeoff__rejected">✗ Rejected: SHA-256 only</div>
+                                <p class="tradeoff__reason">MD5 is still used in legacy threat intel databases. ssdeep
+                                    enables fuzzy
+                                    matching for polymorphic malware variants. The overhead of computing three hashes is
+                                    negligible
+                                    compared to the forensic utility gained.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ====== EXPERIENCE ====== -->
+        <section class="section reveal" id="experience">
+            <div class="section__header">
+                <p class="section__label">Experience</p>
+                <h2 class="section__title">Operational History</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline__item reveal">
+                    <p class="timeline__date">Jan 2026</p>
+                    <h4 class="timeline__title">CTF & Bug Bounty Coordinator</h4>
+                    <p class="timeline__org">Jyothi Engineering College</p>
+                    <div class="timeline__points">
+                        <p class="timeline__point">Organized a college-funded cybersecurity competition with ₹8,000 cash
+                            pool.</p>
+                        <p class="timeline__point">Deployed scalable infrastructure: Bug Bounty on Azure, CTF on Render,
+                            frontend on Vercel.</p>
+                        <p class="timeline__point">Managed server reliability and event logistics for seamless
+                            competition uptime.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item reveal">
+                    <p class="timeline__date">Dec 2025</p>
+                    <h4 class="timeline__title">Cyber Awareness Facilitator</h4>
+                    <p class="timeline__org">4+ Schools across Thrissur (Outreach)</p>
+                    <div class="timeline__points">
+                        <p class="timeline__point">Conducted workshops for 7th graders on ransomware, dark web, and data
+                            security.</p>
+                        <p class="timeline__point">Guided hands-on defense labs: breach checks (HIBP) and 2FA setup.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item reveal">
+                    <p class="timeline__date">Oct 2024</p>
+                    <h4 class="timeline__title">Security Awareness Lead</h4>
+                    <p class="timeline__org">Jyothi Engineering College</p>
+                    <div class="timeline__points">
+                        <p class="timeline__point">Hosted "Phishermen" — demonstrating MITM attacks using Bettercap in
+                            real-time.</p>
+                        <p class="timeline__point">Educated peers on personal data hygiene and real-time spoofing
+                            mitigation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item reveal">
+                    <p class="timeline__date">Jan — Feb 2025</p>
+                    <h4 class="timeline__title">Backend Developer Intern</h4>
+                    <p class="timeline__org">KBA, Trivandrum</p>
+                    <div class="timeline__points">
+                        <p class="timeline__point">Worked on "Coursemate" — student course enrollment system.</p>
+                        <p class="timeline__point">Gained experience in web development fundamentals and collaborative
+                            workflows.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item reveal">
+                    <p class="timeline__date">Feb 2025</p>
+                    <h4 class="timeline__title">Project Exhibitor — Vyvidh '25</h4>
+                    <p class="timeline__org">Vidya Academy of Science</p>
+                    <div class="timeline__points">
+                        <p class="timeline__point">Showcased "FinShield" credit risk prototype at EMMERZO '25
+                            exhibition.</p>
+                        <p class="timeline__point">Recognized for innovation in applying Glass Box AI to financial risk
+                            assessment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hackathons -->
+            <div style="margin-top: var(--space-3xl);">
+                <div class="section__header">
+                    <p class="section__label">Competitions</p>
+                    <h3 class="section__title" style="font-size: var(--step-3);">Hackathon Record</h3>
+                </div>
+                <div class="project-grid" style="gap: var(--space-md);">
+                    <div class="project reveal" style="padding: var(--space-lg);">
+                        <div class="project__header">
+                            <h4>FinShield — IIT Hyderabad</h4>
+                            <span class="project__status"
+                                style="background: var(--accent-amber-dim); color: var(--accent-amber);">Top 9</span>
+                        </div>
+                        <p class="project__desc" style="margin-top: var(--space-xs);">Credit risk model using Glass Box
+                            AI + SHAP. National financial security hackathon, Sept 2025.</p>
+                    </div>
+                    <div class="project reveal" style="padding: var(--space-lg);">
+                        <h4>NASA Space Apps Challenge</h4>
+                        <p class="project__desc" style="margin-top: var(--space-xs);">Interactive visualization solving
+                            galactic challenges using open data. International, Oct 2024.</p>
+                    </div>
+                    <div class="project reveal" style="padding: var(--space-lg);">
+                        <h4>Hack Quest '25 — Rajagiri</h4>
+                        <p class="project__desc" style="margin-top: var(--space-xs);">24-hour national cybersecurity
+                            hackathon. Complex security challenges in competitive environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== LIVE STATUS ====== -->
+        <section class="section reveal" id="status">
+            <div class="section__header">
+                <p class="section__label">System Status</p>
+                <h2 class="section__title">hrishi.exe — Running</h2>
+            </div>
+
+            <div class="status-grid">
+
+                <!-- System Info -->
+                <div class="status-panel reveal">
+                    <h4 class="status-panel__title">Process Information</h4>
+                    <div class="status-row">
+                        <span class="status-row__key">Status</span>
+                        <span class="status-row__value status-row__value--live">Active</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Current Focus</span>
+                        <span class="status-row__value">Adaptive Honeypots</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Research</span>
+                        <span class="status-row__value">Adversarial ML</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Education</span>
+                        <span class="status-row__value">B.Tech CySec '27</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">CGPA</span>
+                        <span class="status-row__value">7.04</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Seeking</span>
+                        <span class="status-row__value">Security Internship</span>
+                    </div>
+                </div>
+
+                <!-- GitHub Feed -->
+                <div class="status-panel reveal">
+                    <h4 class="status-panel__title">GitHub Activity Feed</h4>
+                    <div class="gh-feed" id="gh-feed">
+                        <div class="gh-event"><span class="gh-event__type">[LOADING]</span> Fetching activity...</div>
+                    </div>
+                </div>
+
+                <!-- Tech Radar -->
+                <div class="status-panel reveal">
+                    <h4 class="status-panel__title">Tech Radar</h4>
+                    <div class="tech-radar">
+                        <div class="radar-category">
+                            <p class="radar-category__label">Mastered</p>
+                            <div class="radar-category__items">
+                                <span class="tag">Python</span>
+                                <span class="tag">Wireshark</span>
+                                <span class="tag">Bettercap</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">Git</span>
+                            </div>
+                        </div>
+                        <div class="radar-category">
+                            <p class="radar-category__label">Actively Using</p>
+                            <div class="radar-category__items">
+                                <span class="tag">Rust</span>
+                                <span class="tag">C/C++</span>
+                                <span class="tag">Burp Suite</span>
+                                <span class="tag">Metasploit</span>
+                                <span class="tag">Volatility</span>
+                            </div>
+                        </div>
+                        <div class="radar-category">
+                            <p class="radar-category__label">Learning</p>
+                            <div class="radar-category__items">
+                                <span class="tag">Ghidra</span>
+                                <span class="tag">ML/Adversarial</span>
+                                <span class="tag">YARA Rules</span>
+                                <span class="tag">Threat Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="status-panel reveal">
+                    <h4 class="status-panel__title">Certifications</h4>
+                    <div class="status-row">
+                        <span class="status-row__key">CompTIA CySA+</span>
+                        <span class="status-row__value">Infosys | Jul '25</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Cryptography</span>
+                        <span class="status-row__value">Infosys | Jun '25</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Info Security A-Z</span>
+                        <span class="status-row__value">Infosys | Jul '25</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-row__key">Intro to CySec</span>
+                        <span class="status-row__value">Cisco | Dec '24</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====== SECURITY ====== -->
+        <section class="section reveal" id="security">
+            <div class="section__header">
+                <p class="section__label">Security Posture</p>
+                <h2 class="section__title">Inspect the Perimeter</h2>
+                <p class="section__subtitle">Transparency over obscurity. Here's what protects this environment.</p>
+            </div>
+
+            <div class="security-grid">
+                <div class="sec-card reveal">
+                    <h4 class="sec-card__title">Headers & Policies</h4>
+                    <div class="sec-item">
+                        <span class="sec-item__name">X-Content-Type-Options</span>
+                        <span class="sec-item__status sec-item__status--active">nosniff</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">X-Frame-Options</span>
+                        <span class="sec-item__status sec-item__status--active">DENY</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Referrer-Policy</span>
+                        <span class="sec-item__status sec-item__status--active">strict-origin</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">HTTPS</span>
+                        <span class="sec-item__status sec-item__status--active">Enforced</span>
+                    </div>
+                    <p class="sec-explain">GitHub Pages enforces HTTPS by default. Security headers are configured via
+                        meta
+                        tags where supported. No external scripts are loaded — all code is first-party.</p>
+                </div>
+
+                <div class="sec-card reveal">
+                    <h4 class="sec-card__title">Attack Surface</h4>
+                    <div class="sec-item">
+                        <span class="sec-item__name">External Scripts</span>
+                        <span class="sec-item__status sec-item__status--active">None</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Cookies</span>
+                        <span class="sec-item__status sec-item__status--active">None</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Analytics</span>
+                        <span class="sec-item__status sec-item__status--active">None</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Data Collection</span>
+                        <span class="sec-item__status sec-item__status--active">Zero</span>
+                    </div>
+                    <p class="sec-explain">The behavioral profiler operates entirely client-side. No data is
+                        transmitted,
+                        stored, or collected. The profiler state exists only in runtime memory and is discarded on page
+                        close.
+                        Open DevTools and type <code>THREAT_ENV.profiler.getState()</code> to inspect it yourself.</p>
+                </div>
+
+                <div class="sec-card reveal">
+                    <h4 class="sec-card__title">Architecture Decisions</h4>
+                    <div class="sec-item">
+                        <span class="sec-item__name">CDN Dependencies</span>
+                        <span class="sec-item__status sec-item__status--info">Fonts Only</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">API Calls</span>
+                        <span class="sec-item__status sec-item__status--info">GitHub API</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Framework</span>
+                        <span class="sec-item__status sec-item__status--active">None</span>
+                    </div>
+                    <div class="sec-item">
+                        <span class="sec-item__name">Build Tools</span>
+                        <span class="sec-item__status sec-item__status--active">None</span>
+                    </div>
+                    <p class="sec-explain">Zero framework. Zero build tools. Vanilla HTML, CSS, JavaScript. The only
+                        external
+                        requests are Google Fonts (typography) and GitHub's public API (activity feed). Both are
+                        non-essential
+                        — the site degrades gracefully without them.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CONTACT ====== -->
+        <section class="section reveal" id="contact">
+            <div class="section__header">
+                <p class="section__label">Contact</p>
+                <h2 class="section__title">Establish Connection</h2>
+            </div>
+
+            <div class="contact-grid">
+                <a class="contact-link" href="mailto:hrisheekeshpv.cy23@jecc.ac.in">
+                    <span class="contact-link__icon">✉</span>
+                    <span>hrisheekeshpv.cy23@jecc.ac.in</span>
+                </a>
+                <a class="contact-link" href="https://github.com/Rizzy1857" target="_blank" rel="noopener">
+                    <span class="contact-link__icon">◈</span>
+                    <span>github.com/Rizzy1857</span>
+                </a>
+                <a class="contact-link" href="tel:+918075229774">
+                    <span class="contact-link__icon">☎</span>
+                    <span>+91 8075 229 774</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="env-footer">
+        <p>Adaptive Threat Environment v1.0 — Built with zero frameworks, zero dependencies.</p>
+        <p style="margin-top: var(--space-xs);">© 2025 Hrisheekesh PV. All systems operational.</p>
+    </footer>
+
+    <!-- Scripts (deferred for performance) -->
+    <script src="js/console-msg.js"></script>
+    <script src="js/profiler.js"></script>
+    <script src="js/boot.js"></script>
+    <script src="js/adaptive-ui.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/status.js"></script>
+    <script src="js/keyboard.js"></script>
 </body>
 
 </html>
