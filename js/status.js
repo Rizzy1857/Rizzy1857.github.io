@@ -23,13 +23,18 @@
     };
 
     function timeAgo(dateStr) {
-        const diff = Date.now() - new Date(dateStr).getTime();
+        const date = new Date(dateStr);
+        const diff = Date.now() - date.getTime();
         const mins = Math.floor(diff / 60000);
+        if (mins < 1) return 'just now';
         if (mins < 60) return `${mins}m ago`;
         const hrs = Math.floor(mins / 60);
         if (hrs < 24) return `${hrs}h ago`;
         const days = Math.floor(hrs / 24);
-        return `${days}d ago`;
+        if (days < 7) return `${days}d ago`;
+        // Show actual date for older events
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${months[date.getMonth()]} ${date.getDate()}`;
     }
 
     async function fetchGitHubActivity() {
@@ -53,7 +58,8 @@
 
                 let detail = '';
                 if (event.type === 'PushEvent') {
-                    const commits = event.payload?.commits?.length || 0;
+                    // payload.size is the real count; payload.commits array is capped at 20
+                    const commits = event.payload?.size || event.payload?.commits?.length || 0;
                     detail = ` — ${commits} commit${commits !== 1 ? 's' : ''}`;
                 }
 
