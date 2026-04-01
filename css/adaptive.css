@@ -21,8 +21,7 @@ body[data-profile="skimmer"] .project__desc {
 }
 
 body[data-profile="skimmer"] .timeline__points {
-    max-height: 3em;
-    overflow: hidden;
+    display: none;
 }
 
 body[data-profile="skimmer"] .sec-explain {
