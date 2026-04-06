@@ -7,18 +7,37 @@
 (function () {
     'use strict';
 
+    function setInternalsOpen(project, isOpen, { userInitiated } = { userInitiated: false }) {
+        if (!project) return;
+        const depth = project.querySelector('.project__depth');
+        if (!depth) return;
+        const btn = project.querySelector('.btn-internals');
+
+        if (isOpen) {
+            depth.classList.add('revealed');
+            delete depth.dataset.userCollapsed;
+        } else {
+            depth.classList.remove('revealed');
+            if (userInitiated) depth.dataset.userCollapsed = '1';
+        }
+
+        if (btn) {
+            btn.classList.toggle('btn-internals--active', isOpen);
+            btn.textContent = isOpen ? '[ Close Internals ]' : '[ View Internals ]';
+        }
+    }
+
     // --- View Internals toggle ---
     function initInternalsButtons() {
         document.querySelectorAll('.btn-internals').forEach(btn => {
             btn.addEventListener('click', () => {
                 const project = btn.closest('.project');
                 if (!project) return;
+
                 const depth = project.querySelector('.project__depth');
                 if (!depth) return;
-
-                const isRevealed = depth.classList.toggle('revealed');
-                btn.classList.toggle('btn-internals--active', isRevealed);
-                btn.textContent = isRevealed ? '[ Close Internals ]' : '[ View Internals ]';
+                const willOpen = !depth.classList.contains('revealed');
+                setInternalsOpen(project, willOpen, { userInitiated: true });
 
                 // Bump interaction count for profiler
                 if (window.THREAT_ENV?.profiler) {
@@ -103,14 +122,19 @@
         document.addEventListener('profileChange', (e) => {
             const profile = e.detail.profile;
 
-            // Auto-reveal depth for readers
-            if (profile === 'reader') {
-                document.querySelectorAll('.project__depth').forEach(depth => {
-                    depth.classList.add('revealed');
-                });
-                document.querySelectorAll('.btn-internals').forEach(btn => {
-                    btn.classList.add('btn-internals--active');
-                    btn.textContent = '[ Close Internals ]';
+            // Auto-reveal depth for deep-reading / heavy interaction modes
+            if (profile === 'reader' || profile === 'explorer') {
+                document.querySelectorAll('.project').forEach(project => {
+                    const depth = project.querySelector('.project__depth');
+                    if (!depth) return;
+
+                    // Respect explicit user collapse in any mode.
+                    if (depth.dataset.userCollapsed === '1') {
+                        setInternalsOpen(project, false);
+                        return;
+                    }
+
+                    setInternalsOpen(project, true);
                 });
             }
         });

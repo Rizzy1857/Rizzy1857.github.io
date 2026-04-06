@@ -8,6 +8,13 @@ const THREAT_ENV = window.THREAT_ENV || {};
 (function() {
   'use strict';
 
+  // --- Profile switching controls (prevents rapid/flaky mode flips) ---
+  const PROFILE_SAMPLE_INTERVAL_MS = 3000;
+  const REQUIRED_CONSECUTIVE_SAMPLES_FROM_NEUTRAL = 2;
+  const REQUIRED_CONSECUTIVE_SAMPLES_FROM_NON_NEUTRAL = 3;
+  const MIN_SWITCH_INTERVAL_FROM_NEUTRAL_MS = 8000;
+  const MIN_SWITCH_INTERVAL_FROM_NON_NEUTRAL_MS = 20000;
+
   const state = {
     scrollSpeeds: [],
     clickCount: 0,
@@ -16,7 +23,7 @@ const THREAT_ENV = window.THREAT_ENV || {};
     timeOnPage: 0,
     sectionTimes: {},
     devToolsOpen: false,
-    profile: 'neutral', // skimmer | reader | explorer | neutral
+    profile: 'neutral', // skimmer | reader | explorer | neutral (applied)
     lastScrollY: 0,
     lastScrollTime: Date.now(),
     startTime: Date.now(),
@@ -139,23 +146,70 @@ const THREAT_ENV = window.THREAT_ENV || {};
 
   // --- Apply Profile ---
   let currentApplied = 'neutral';
-  function applyProfile() {
-    const profile = classify();
-    state.profile = profile;
+  let lastAppliedAt = Date.now();
+  let pendingCandidate = 'neutral';
+  let pendingCount = 0;
+  let indicatorHideTimeout;
 
-    if (profile !== currentApplied) {
-      document.body.setAttribute('data-profile', profile);
-      currentApplied = profile;
+  function shouldApplyCandidate(candidate) {
+    if (candidate === currentApplied) return false;
+
+    // Avoid flapping back to neutral automatically.
+    // Neutral is a safe default at start, but once we’ve inferred a mode,
+    // letting it bounce to neutral causes the UI to “shrink/expand” randomly.
+    if (candidate === 'neutral' && currentApplied !== 'neutral') return false;
+
+    const fromNeutral = currentApplied === 'neutral';
+    const required = fromNeutral
+      ? REQUIRED_CONSECUTIVE_SAMPLES_FROM_NEUTRAL
+      : REQUIRED_CONSECUTIVE_SAMPLES_FROM_NON_NEUTRAL;
+    const minInterval = fromNeutral
+      ? MIN_SWITCH_INTERVAL_FROM_NEUTRAL_MS
+      : MIN_SWITCH_INTERVAL_FROM_NON_NEUTRAL_MS;
+
+    if (pendingCount < required) return false;
+    if (Date.now() - lastAppliedAt < minInterval) return false;
+    return true;
+  }
+
+  function applyProfile() {
+    const candidate = classify();
+
+    if (candidate !== pendingCandidate) {
+      pendingCandidate = candidate;
+      pendingCount = 1;
+    } else {
+      pendingCount++;
+    }
+
+    if (shouldApplyCandidate(candidate)) {
+      document.body.setAttribute('data-profile', candidate);
+      currentApplied = candidate;
+      state.profile = candidate;
+      lastAppliedAt = Date.now();
 
       // Notify adaptive UI
-      const event = new CustomEvent('profileChange', { detail: { profile } });
+      const event = new CustomEvent('profileChange', { detail: { profile: candidate } });
       document.dispatchEvent(event);
 
       // Update HUD indicator
       const indicator = document.querySelector('.adaptive-indicator');
       if (indicator) {
-        indicator.textContent = profile === 'neutral' ? '' : `mode: ${profile}`;
-        indicator.classList.toggle('active', profile !== 'neutral');
+        if (candidate === 'neutral') {
+          indicator.textContent = '';
+          indicator.classList.remove('active', 'shown');
+          if (indicatorHideTimeout) {
+            clearTimeout(indicatorHideTimeout);
+            indicatorHideTimeout = undefined;
+          }
+        } else {
+          indicator.textContent = candidate;
+          indicator.classList.add('active', 'shown');
+          if (indicatorHideTimeout) clearTimeout(indicatorHideTimeout);
+          indicatorHideTimeout = setTimeout(() => {
+            indicator.classList.remove('shown');
+          }, 6000);
+        }
       }
     }
   }
@@ -169,7 +223,7 @@ const THREAT_ENV = window.THREAT_ENV || {};
     window.addEventListener('resize', checkDevTools);
 
     // Classify every 3 seconds
-    setInterval(applyProfile, 3000);
+    setInterval(applyProfile, PROFILE_SAMPLE_INTERVAL_MS);
 
     // Track time on page
     setInterval(() => {

@@ -33,12 +33,7 @@ body[data-profile="skimmer"] .project__metrics .metric__value {
     font-size: var(--step-2);
 }
 
-/* --- Reader Mode: Expand depth sections --- */
-body[data-profile="reader"] .project__depth {
-    max-height: 2000px;
-    opacity: 1;
-    margin-top: var(--space-xl);
-}
+/* --- Reader Mode: Bias toward internals, but keep user toggle authoritative --- */
 
 body[data-profile="reader"] .btn-internals {
     color: var(--accent-blue);
@@ -46,12 +41,7 @@ body[data-profile="reader"] .btn-internals {
     border-style: solid;
 }
 
-/* --- Explorer Mode: Expand depth for heavy interactors --- */
-body[data-profile="explorer"] .project__depth {
-    max-height: 2000px;
-    opacity: 1;
-    margin-top: var(--space-xl);
-}
+/* --- Explorer Mode: Bias toward internals, but keep user toggle authoritative --- */
 
 /* --- Adaptive Status Indicator (shown in HUD) --- */
 .adaptive-indicator {
@@ -64,6 +54,10 @@ body[data-profile="explorer"] .project__depth {
 }
 
 .adaptive-indicator.active {
+    opacity: 0;
+}
+
+.adaptive-indicator.active.shown {
     opacity: 1;
 }
 

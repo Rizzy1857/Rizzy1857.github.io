@@ -31,7 +31,7 @@
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent-blue-glow), transparent);
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.18;
     animation: scanDown 8s linear infinite;
     pointer-events: none;
 }
@@ -839,8 +839,9 @@
 /* --- Contact --- */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     gap: var(--space-md);
+    min-width: 0;
 }
 
 .contact-link {
@@ -856,6 +857,23 @@
     font-size: var(--step--1);
     transition: all var(--dur-fast) var(--ease-out);
     text-decoration: none;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.contact-link > span {
+    min-width: 0;
+}
+
+.contact-link > span:not(.contact-link__icon) {
+    flex: 1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+    word-break: break-all;
 }
 
 .contact-link:hover {
